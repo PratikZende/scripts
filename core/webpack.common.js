@@ -16,7 +16,27 @@ if (fs.existsSync(tsConfigPath)) {
 }
 
 /** @type {string[]} List of file extensions that webpack will resolve */
-const allowedExtensions = ['.ts', '.tsx', '.js', '.json', '.png', '.glb', '.jpg', '.mp3', '.svg', '.css', '.gif', '.mp4'];
+const allowedExtensions = [
+  '.ts',
+  '.tsx',
+  '.js',
+  '.jsx',
+  '.json',
+  '.png',
+  '.glb',
+  '.fbx',
+  '.obj',
+  '.gltf',
+  '.jpg',
+  '.mp3',
+  '.ogg',
+  '.wav',
+  '.svg',
+  '.css',
+  '.scss',
+  '.gif',
+  '.mp4'
+];
 
 /** @type {import('webpack').Configuration} Base webpack configuration used by both development and build configs */
 const webpackConfig = {
@@ -36,7 +56,7 @@ const webpackConfig = {
       : []
   },
   output: {
-    filename: 'index.[fullhash:8].js',
+    filename: 'index.[contenthash:8].js',
     path: path.resolve('dist')
   },
   plugins: [
@@ -45,8 +65,8 @@ const webpackConfig = {
       frag: ['@smoud/vdom', 'frag']
     }),
     new MiniCssExtractPlugin({
-      filename: 'index.[fullhash:8].css',
-      chunkFilename: '[id].[fullhash:8].css'
+      filename: 'index.[contenthash:8].css',
+      chunkFilename: '[id].[contenthash:8].css'
     }),
     new CopyWebpackPlugin({
       patterns: [

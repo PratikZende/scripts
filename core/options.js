@@ -15,8 +15,7 @@ try {
   console.error('Error reading project package.json:', err.message);
 }
 
-/** @type {import('./index').CLIOptions} */
-let options = parseArgvOptions([
+const possibleOptions = [
   {
     name: 'name',
     hasValue: true,
@@ -125,7 +124,10 @@ let options = parseArgvOptions([
     hasValue: true,
     description: 'URL of debugger script to inject into code'
   }
-]);
+];
+
+/** @type {import('./index').CLIOptions} */
+const options = parseArgvOptions(possibleOptions);
 
 /**
  * Building Defines options
@@ -136,7 +138,12 @@ try {
   const fileData = fs.readFileSync(path.resolve(options['buildConfig']), 'utf8');
   try {
     const customOptions = JSON.parse(fileData);
-    options = mergeOptions(options, customOptions);
+    for (let key in customOptions) {
+      if (key === 'defines') Object.assign(options.defines, customOptions[key]);
+      else if (possibleOptions.find((e) => e.alias === key || e.name === key)) {
+        options[key] = customOptions[key];
+      }
+    }
   } catch (err) {
     console.log(chalk.red('Build config parsing error: ' + err.message));
   }

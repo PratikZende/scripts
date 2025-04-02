@@ -43,6 +43,8 @@ function makeWebpackBuildConfig(customOptions, customDefines, webpackCustomConfi
   // outDir = outDir.replace(/[^a-zA-Z0-9]/g, '_');
 
   let htmlFileName = 'index.html';
+  
+  const metaTags = {};
 
   if (!buildOptions.skipRecommendedMeta) {
     metaTags['HandheldFriendly'] = 'True';
@@ -98,8 +100,6 @@ function makeWebpackBuildConfig(customOptions, customDefines, webpackCustomConfi
       ...customDefines
     })
   );
-
-  if (adNetwork !== 'mintegral') webpackConfig.plugins.push(new HtmlInlineScriptPlugin());
 
   if (platform === 'telegram') {
     webpackConfig.plugins.push(new TelegramWebAppInjectorPlugin());

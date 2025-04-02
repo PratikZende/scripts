@@ -1,9 +1,14 @@
 declare module '*.png';
 declare module '*.jpg';
 declare module '*.svg';
+declare module '*.gif';
 declare module '*.glb';
 declare module '*.gltf';
+declare module '*.fbx';
+declare module '*.obj';
 declare module '*.mp3';
+declare module '*.ogg';
+declare module '*.wav';
 
 declare const PLATFORM:
   | 'browser'
@@ -51,4 +56,6 @@ declare const LANGUAGE:
   | 'id'
   | 'vi';
 
+declare const APP_NAME: string;
+declare const APP_VERSION: string;
 declare const __DEV__: boolean;
