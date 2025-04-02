@@ -1,6 +1,6 @@
 {
   "name": "@smoud/scripts",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Powerful build tool for HTML5 games, designed to streamline development, optimization, and packaging for multiple platforms, including web browsers, game portals, social media, mobile, and Web3",
   "main": "core/index.js",
   "module": "core/index.js",
@@ -34,7 +34,6 @@
     "css-loader": "^7.1.2",
     "esbuild-loader": "^4.2.2",
     "file-loader": "^6.2.0",
-    "html-inline-script-webpack-plugin": "^3.2.1",
     "html-loader": "^5.1.0",
     "html-webpack-plugin": "^5.6.0",
     "mini-css-extract-plugin": "^2.9.2",

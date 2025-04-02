@@ -3,7 +3,6 @@ const path = require('path');
 const fs = require('fs');
 var prettyjson = require('prettyjson');
 const { name, version } = require('../package.json');
-const { mergeOptions } = require('./utils/mergeOptions');
 
 let projectName = '';
 let projectVersion = '';

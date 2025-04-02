@@ -3,7 +3,6 @@ const { webpackCommonConfig } = require('./webpack.common.js');
 const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const HtmlInlineScriptPlugin = require('html-inline-script-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { TelegramWebAppInjectorPlugin } = require('./plugins/TelegramWebAppInjectorPlugin.js');
