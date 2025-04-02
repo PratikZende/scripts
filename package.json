@@ -1,6 +1,6 @@
 {
   "name": "@smoud/scripts",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Powerful build tool for HTML5 games, designed to streamline development, optimization, and packaging for multiple platforms, including web browsers, game portals, social media, mobile, and Web3",
   "main": "core/index.js",
   "module": "core/index.js",
