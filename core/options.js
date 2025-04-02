@@ -16,7 +16,7 @@ try {
 }
 
 /** @type {import('./index').CLIOptions} */
-const options = parseArgvOptions([
+let options = parseArgvOptions([
   {
     name: 'name',
     hasValue: true,

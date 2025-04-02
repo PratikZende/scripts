@@ -2,6 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/@smoud/scripts)](https://www.npmjs.com/package/@smoud/scripts)
 [![Downloads](https://img.shields.io/npm/dw/@smoud/scripts)](https://www.npmjs.com/package/@smoud/scripts)
+[![DeepScan grade](https://deepscan.io/api/teams/19616/projects/29227/branches/939281/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=19616&pid=29227&bid=939281)
 [![License](https://img.shields.io/npm/l/@smoud/scripts)](https://github.com/smoudjs/scripts/blob/master/LICENSE)
 
 **The Ultimate Build Tool for HTML5 Games**
