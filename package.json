@@ -1,0 +1,78 @@
+{
+  "name": "@smoud/scripts",
+  "version": "1.0.0",
+  "description": "Powerful build tool for HTML5 games, designed to streamline development, optimization, and packaging for multiple platforms, including web browsers, game portals, social media, mobile, and Web3",
+  "main": "core/index.js",
+  "module": "core/index.js",
+  "types": "core/index.d.ts",
+  "bin": {
+    "smoud-scripts": "cli/bin/smoud-scripts.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smoudjs/scripts.git"
+  },
+  "files": [
+    "cli",
+    "core",
+    "LICENSE",
+    "README.md",
+    "defines.d.ts"
+  ],
+  "scripts": {
+    "deploy": "npm publish --access public"
+  },
+  "author": "Smoud",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "babel-loader": "^9.2.1",
+    "copy-webpack-plugin": "^13.0.0",
+    "cross-spawn": "^7.0.3",
+    "css-loader": "^7.1.2",
+    "esbuild-loader": "^4.2.2",
+    "html-inline-script-webpack-plugin": "^3.2.1",
+    "html-webpack-plugin": "^5.6.0",
+    "mini-css-extract-plugin": "^2.9.2",
+    "prettyjson": "^1.2.5",
+    "style-loader": "^4.0.0",
+    "terser-webpack-plugin": "^5.3.10",
+    "tsconfig-paths-webpack-plugin": "^4.2.0",
+    "webpack": "^5.91.0",
+    "webpack-dev-server": "^5.1.0",
+    "webpack-merge": "^5.10.0",
+    "zip-webpack-plugin": "^4.0.3"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "bugs": {
+    "mail": "peter.hutsul@gmail.com",
+    "url": "https://github.com/smoudjs/scripts/issues"
+  },
+  "homepage": "https://github.com/smoudjs/scripts",
+  "keywords": [
+    "html5",
+    "game",
+    "scripts",
+    "build",
+    "builder",
+    "automation",
+    "cli",
+    "webpack",
+    "game-development",
+    "game-engine",
+    "optimization",
+    "typescript",
+    "javascript",
+    "minification",
+    "cross-platform",
+    "pwa",
+    "browser-game",
+    "web-game",
+    "mobile-game",
+    "social-game",
+    "web3-game"
+  ]
+}
