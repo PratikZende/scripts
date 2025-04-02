@@ -1,6 +1,6 @@
 {
   "name": "@smoud/scripts",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Powerful build tool for HTML5 games, designed to streamline development, optimization, and packaging for multiple platforms, including web browsers, game portals, social media, mobile, and Web3",
   "main": "core/index.js",
   "module": "core/index.js",
@@ -28,6 +28,7 @@
     "@babel/core": "^7.26.0",
     "@babel/preset-env": "^7.26.0",
     "babel-loader": "^9.2.1",
+    "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^13.0.0",
     "cross-spawn": "^7.0.3",
     "css-loader": "^7.1.2",

@@ -5,6 +5,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlInlineScriptPlugin = require('html-inline-script-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { TelegramWebAppInjectorPlugin } = require('./plugins/TelegramWebAppInjectorPlugin.js');
 // const ZipPlugin = require('zip-webpack-plugin');
 const { getCurrentDateFormatted } = require('./utils/date');
@@ -43,7 +44,7 @@ function makeWebpackBuildConfig(customOptions, customDefines, webpackCustomConfi
   // outDir = outDir.replace(/[^a-zA-Z0-9]/g, '_');
 
   let htmlFileName = 'index.html';
-  
+
   const metaTags = {};
 
   if (!buildOptions.skipRecommendedMeta) {
@@ -83,6 +84,8 @@ function makeWebpackBuildConfig(customOptions, customDefines, webpackCustomConfi
     },
     webpackCustomConfig
   );
+
+  webpackConfig.plugins.splice(0, 0, new CleanWebpackPlugin());
 
   webpackConfig.plugins.push(
     new HtmlWebpackPlugin({
