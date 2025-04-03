@@ -41,6 +41,7 @@ const allowedExtensions = [
 /** @type {import('webpack').Configuration} Base webpack configuration used by both development and build configs */
 const webpackConfig = {
   entry: path.resolve('src/index'),
+
   resolve: {
     extensions: allowedExtensions,
     alias: {
@@ -55,19 +56,23 @@ const webpackConfig = {
         ]
       : []
   },
+
   output: {
-    filename: 'index.[contenthash:8].js',
+    filename: '[name].[contenthash:8].js',
     path: path.resolve('dist')
   },
+
   plugins: [
     new webpack.ProvidePlugin({
       h: ['@smoud/vdom', 'h'],
       frag: ['@smoud/vdom', 'frag']
     }),
+
     new MiniCssExtractPlugin({
-      filename: 'index.[contenthash:8].css',
+      filename: '[name].[contenthash:8].css',
       chunkFilename: '[id].[contenthash:8].css'
     }),
+
     new CopyWebpackPlugin({
       patterns: [
         {

@@ -7,7 +7,7 @@
 
 **The Ultimate Build Tool for HTML5 Games**
 
-`@smoud/scripts` is a powerful build tool for HTML5 games, designed to streamline development, optimization, and packaging for multiple platforms, including web browsers, game portals (CrazyGames, Poki, ...), social media (Facebook, Snapchat, TikTok, ...), mobile, and Web3/blockchain platforms. This tool provides a one-command solution to handle platform-specific requirements, asset optimization, and build automation.
+`@smoud/scripts` is a powerful build tool for HTML5 games, designed to streamline development, optimization, and packaging for multiple platforms, including web browsers, game portals, social media, mobile, and web3 platforms. This tool provides a one-command solution to handle platform-specific requirements, asset optimization, and build automation.
 
 ## Features
 
@@ -146,6 +146,8 @@ The `build.json` file allows you to customize build options. Here's the format:
 
 All fields are optional and will use the default values if not specified.
 
+Check [Default Options](#default-options) to see full list of available options.
+
 ## Output directory name template
 
 The `outDir` template (specified with `--out-dir` option) supports the following variables:
@@ -158,6 +160,41 @@ The `outDir` template (specified with `--out-dir` option) supports the following
 - `{hash}` - Unique build identifier
 
 Example: `--out-dir "build/{name}_{version}_{platform}"`
+
+## Defines
+
+The following global defines are automatically available in your code during development and build:
+
+| Define     | Description                              | Example Value               |
+| ---------- | ---------------------------------------- | --------------------------- |
+| `__DEV__`  | Boolean flag indicating development mode | `true` or `false`           |
+| `PLATFORM` | Current target platform identifier       | `"browser"`, `"poki"`, etc. |
+| `LANGUAGE` | Current language code                    | `"en"`, `"es"`, etc.        |
+
+These defines can be used in your code for conditional logic:
+
+```javascript
+if (__DEV__) {
+  console.log('Debug mode is active');
+}
+
+if (PLATFORM === 'poki') {
+  // Poki-specific code
+}
+
+console.log(`Current language: ${LANGUAGE}`);
+```
+
+You can also add custom defines by modifying the `defines` property in your build.json file:
+
+```json
+{
+  "defines": {
+    "CUSTOM_DEFINE": "'custom value'",
+    "FEATURE_FLAG": "true"
+  }
+}
+```
 
 ## Meta Tags
 
@@ -236,13 +273,7 @@ const options = {
   dev: undefined, // Development mode flag
   skipRecommendedMeta: undefined, // Skip recommended meta tags injection
   debugger: undefined, // URL of debugger script to inject
-
-  // Defines options (automatically generated from CLI options)
-  defines: {
-    __DEV__: false, // Development mode flag
-    PLATFORM: '...', // Current platform identifier
-    LANGUAGE: '...' // Current language code
-  }
+  defines: {} // Defines options
 };
 ```
 
